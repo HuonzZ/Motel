@@ -104,11 +104,9 @@
 								<i class="fas fa-sign-in-alt "></i> Đăng Ký
 							</a>
 							<div class="dropdown-menu">
-
 								<a class="dropdown-item" href="user/register"> Bạn đang tìm phòng?</a>
 								<br>
 								<a class="dropdown-item" href="user/register2">Bạn có phòng cho thuê? </a>
-
 							</div>
 						</li>
 					</ul>
