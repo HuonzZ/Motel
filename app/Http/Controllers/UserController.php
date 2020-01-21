@@ -13,6 +13,8 @@ use DB;
 class UserController extends Controller
 {
 	/* Register */
+
+    // đăng ký cho người thuê phòng
    	public function get_register(){
 //         $categories = Categories::all();
 //   		return view('home.register',['categories'=>$categories]);
@@ -54,6 +56,51 @@ class UserController extends Controller
    		$newuser->save();
    		return redirect('/')->with('success','Đăng kí thành công');
    	}
+
+   	// đăng ký cho chủ phòng trọ
+    public function get_register2(){
+//         $categories = Categories::all();
+//   		return view('home.register',['categories'=>$categories]);
+        return view('home.register2');
+    }
+    public function post_register2(Request $req){
+
+        $req->validate([
+            'txtuser' => 'required|unique:users,username',
+            'txtphone' => 'required|unique:users,phone',
+            'txtemail' => 'required|email|unique:users,email',
+            'txtpass' => 'required|min:6',
+            'txt-repass' => 'required|same:txtpass',
+            'txtname' => 'required'
+        ],[
+            'txtuser.required' => 'Vui lòng nhập tài khoản',
+            'txtuser.unique' => 'Tài khoản đã tồn tại trên hệ thống',
+            'txtphone.required' => 'Vui lòng nhập số điện thoại',
+            'txtphone.unique' => 'Số điện thoại đã tồn tại trên hệ thống',
+
+            'txtemail.unique' => 'Email đã tồn tại trên hệ thống',
+            'txtemail.required' => 'Vui lòng nhập Email',
+
+            'txtpass.required' => 'Vui lòng nhập mật khẩu',
+            'txtpass.min' => 'Mật khẩu phải lớn hơn 6 kí tự',
+            'txt-repass.required' => 'Vui lòng nhập lại mật khẩu',
+            'txt-repass.same' => 'Mật khẩu nhập lại không trùng khớp',
+            'txtname.required' => 'Nhập tên hiển thị'
+        ]);
+        $newuser = new User;
+        $newuser->username = $req->txtuser;
+        $newuser->name = $req->txtname;
+        $newuser->phone = $req->txtphone;
+        $newuser->gender = 0;
+        $newuser->right = 1;
+        $newuser->email = $req->txtemail;
+        $newuser->password = bcrypt($req->txtpass);
+
+
+        $newuser->save();
+        return redirect('/')->with('success','Đăng kí thành công');
+    }
+
    	/* Login */
    	public function get_login(){
          $categories = Categories::all();

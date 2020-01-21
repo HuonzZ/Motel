@@ -99,7 +99,18 @@
 				@else
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="user/login"><i class="fas fa-user-circle"></i> Đăng Nhập</a></li>
-						<li><a href="user/register"><i class="fas fa-sign-in-alt"></i> Đăng Kí</a></li>
+						<li>
+							<a class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fas fa-sign-in-alt "></i> Đăng Ký
+							</a>
+							<div class="dropdown-menu">
+
+								<a class="dropdown-item" href="user/register"> Bạn đang tìm phòng?</a>
+								<br>
+								<a class="dropdown-item" href="user/register2">Bạn có phòng cho thuê? </a>
+
+							</div>
+						</li>
 					</ul>
 				@endif
 

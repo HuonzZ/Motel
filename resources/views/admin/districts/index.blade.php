@@ -35,6 +35,7 @@
                                 <span class="text-semibold">Well done!</span>  {{session('thongbao')}}
                             </div>
                         @endif
+                        <a href="{{route('districts.create')}}"><i class="glyphicon glyphicon-plus" ></i> Thêm</a>
                         <table class="table datatable-show-all">
                             <thead>
                             <tr class="bg-blue">
@@ -58,7 +59,7 @@
                                                 </a>
 
                                                 <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="{{route('districts.create')}}"><i class="glyphicon glyphicon-plus" ></i> Thêm</a></li>
+{{--                                                    <li><a href="{{route('districts.create')}}"><i class="glyphicon glyphicon-plus" ></i> Thêm</a></li>--}}
                                                     <li><a href="{{url('admin/districts/'.$kv->id.'/edit')}}"><i class="glyphicon glyphicon-pencil" ></i> Sửa</a></li>
                                                     <li><a href="{{route('xoakv',$kv->id)}}"><i class="glyphicon glyphicon-trash"></i> Xóa</a></li>
 

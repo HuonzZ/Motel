@@ -80,6 +80,9 @@ Route::group(['prefix'=>'user'], function () {
     Route::get('register','UserController@get_register');
     Route::post('register','UserController@post_register')->name('user.register');
 
+    Route::get('register2','UserController@get_register2');
+    Route::post('register2','UserController@post_register2')->name('user.register2');
+
     Route::get('login','UserController@get_login');
     Route::post('login','UserController@post_login')->name('user.login');
     Route::get('logout','UserController@logout');
