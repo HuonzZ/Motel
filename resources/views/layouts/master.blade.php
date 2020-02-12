@@ -95,6 +95,19 @@
 								</li>
 							</ul>
 						@break
+						@case(2)
+						<ul class="nav navbar-nav navbar-right">
+							<li><a class="btn-dangtin" href="user/dangtin"><i class="fas fa-edit"></i> Đăng tin ngay</a></li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Xin chào! {{Auth::user()->name}} <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="user/profile">Thông tin chi tiết</a></li>
+									<li><a href="user/dangtin">Đăng tin</a></li>
+									<li><a href="user/logout">Thoát</a></li>
+								</ul>
+							</li>
+						</ul>
+						@break
 					@endswitch
 				@else
 					<ul class="nav navbar-nav navbar-right">
